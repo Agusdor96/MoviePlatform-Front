@@ -1,14 +1,15 @@
 import React from 'react';
-import { Movie } from '../types/MovieType'; 
+import { Movie } from '../../types/MovieType'; 
+import styles from "./Moviecard.module.css"
 
 interface MovieCardProps {
   movie: Movie;
 }
 
 const MovieCard: React.FC<MovieCardProps> = ({ movie }) => (
-  <div className="movie-card">
+  <div className={styles.card}>
     <img src={movie.posterUrl} alt={`${movie.title} poster`} />
-    <h3>{movie.title}</h3>
+    <h3 className={styles.cardTitle}>{movie.title}</h3>
     <p><strong>Director:</strong> {movie.director}</p>
     <p><strong>Protagonista:</strong> {movie.mainCharacter}</p>
     <p><strong>Año:</strong> {movie.year}</p>
