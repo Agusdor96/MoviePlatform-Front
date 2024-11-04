@@ -19,7 +19,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => (
     <p><strong>Rating:</strong> {movie.rating}</p>
     {movie.platformLink && (
       <a href={movie.platformLink} target="_blank" rel="noopener noreferrer">
-        Click para ver en plataforma
+        Ver en plataforma
       </a>
     )}
   </div>

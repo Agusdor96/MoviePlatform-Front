@@ -11,4 +11,10 @@ export interface Movie {
     posterUrl: string;
     platformLink?: string;
   }
+
+  export interface MoviesResponse {
+    movies: Movie[];
+    totalMovies: number; // Define la estructura esperada
+  }
+  
   
