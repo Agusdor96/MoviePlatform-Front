@@ -8,8 +8,8 @@
   width: 250px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  border: 1px solid #ccc;
-  background-color: white;
+  border: 1px solid #cccccc75;
+  background-color: rgba(201, 219, 238, 0.262);
 }
 
 .card img {
@@ -21,13 +21,13 @@
 .cardTitle {
   font-size: 1.2rem;
   margin: 10px 0;
-  color: #333;
+  color: #efdcdc;
 }
 
 .card p {
   margin: 5px 0;
   font-size: 0.9rem;
-  color: #666;
+  color: #dbe862;
 }
 
 .card a {
