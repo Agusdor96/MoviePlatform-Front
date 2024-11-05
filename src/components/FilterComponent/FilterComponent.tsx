@@ -1,35 +1,34 @@
 import React, { useState } from 'react';
 import { Filters } from '../../types/FilterTypes';
+import styles from "./FilterComponent.module.css"
 
 interface FilterBoxProps {
   onApplyFilters: (filters: Filters) => void;
 }
 
 const FilterBox: React.FC<FilterBoxProps> = ({ onApplyFilters }) => {
-  const [filters, setFilters] = useState<Filters>({});
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      [name]: value,
-    }));
-  };
+  const [sortBy, setSortBy] = useState<Filters['sortBy']>('year');
+  const [order, setOrder] = useState<Filters['order']>('desc');
 
   const handleApplyFilters = () => {
-    onApplyFilters(filters);
+    onApplyFilters({ sortBy, order });
   };
 
   return (
-    <div className="filter-box">
-      <input type="text" name="director" placeholder="Director" onChange={handleChange} />
-      <input type="text" name="mainCharacter" placeholder="Personaje Principal" onChange={handleChange} />
-      <input type="number" name="year" placeholder="Año" onChange={handleChange} />
-      <input type="text" name="genre" placeholder="Género" onChange={handleChange} />
-      <input type="number" name="imdbPosition" placeholder="Posición IMDb" onChange={handleChange} />
-      <input type="number" name="duration" placeholder="Duración (min)" onChange={handleChange} />
-      <input type="number" name="rating" placeholder="Calificación" onChange={handleChange} />
-      <button onClick={handleApplyFilters}>Aplicar Filtros</button>
+    <div className={styles.filterboxContainer}>
+      <div className={styles.filterbox}>
+        <select value={sortBy} onChange={(e) => setSortBy(e.target.value as Filters['sortBy'])}>
+          <option value="year">Año</option>
+          <option value="imdbPosition">Posición IMDb</option>
+          <option value="rating">Rating</option>
+          <option value="duration">Duración</option>
+        </select>
+        <select value={order} onChange={(e) => setOrder(e.target.value as Filters['order'])}>
+          <option value="asc">Ascendente</option>
+          <option value="desc">Descendente</option>
+        </select>
+        <button onClick={handleApplyFilters}>Aplicar Filtros</button>
+      </div>
     </div>
   );
 };

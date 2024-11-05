@@ -9,13 +9,13 @@ import { Filters } from '../../types/FilterTypes';
 
 const Home: React.FC = () => {
     const { movies, setMovies, currentPage, setCurrentPage, totalPages, setTotalPages } = useMovies();
-    const [filters, setFilters] = useState<Filters>({});
+    const [filters, setFilters] =  useState<Filters>({ search: "" }); 
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
         const {movies: moviesData, totalMovies: total} = Object.keys(filters).length
-        ? await getFilteredMovies(filters, currentPage)
+        ? await getFilteredMovies(currentPage, 20, filters)
         : await getMovies(currentPage);
         setMovies(moviesData);
         const totalPages = Math.ceil(total / 20);
@@ -26,7 +26,7 @@ const Home: React.FC = () => {
     };
 
     fetchMovies();
-  }, [currentPage, setMovies, setTotalPages]);
+  }, [currentPage, filters, setMovies, setTotalPages]);
 
   const handleNextPage = () => {
     if (currentPage < totalPages - 1) {
@@ -42,24 +42,17 @@ const Home: React.FC = () => {
 
 
   const handleApplyFilters = (newFilters: Filters) => {
-    setFilters(newFilters);
-    fetchFilteredMovies(newFilters);
+    setFilters((prevFilters) => ({ ...prevFilters, ...newFilters }));
   };
 
-  const fetchFilteredMovies = async (filters: Filters) => {
-    try {
-      const { movies: filteredMovies, totalMovies: total } = await getFilteredMovies(filters, currentPage);
-      setMovies(filteredMovies);
-      const totalPages = Math.ceil(total / 20);
-      setTotalPages(totalPages);
-    } catch (error) {
-      console.error("Error fetching filtered movies:", error);
-    }
+  const handleSearchChange = (search: string) => {
+    setFilters((prevFilters) => ({ ...prevFilters, search }));
+    setCurrentPage(0); // Reinicia a la primera página al realizar una nueva búsqueda
   };
 
   return (
     <div className={styles.homeContainer}>
-      <Navbar/>
+      <Navbar onSearch={handleSearchChange}/>
       <FilterBox onApplyFilters={handleApplyFilters} />
       <CardContainer movies={movies} />
       <div className={styles.pagination}>

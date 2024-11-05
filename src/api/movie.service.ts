@@ -10,9 +10,9 @@ export const getMovies = async (page: number = 1, limit: number = 20): Promise<M
   return response.data;
 };
 
-export const getFilteredMovies = async (filters: Filters, page: number = 1, limit: number = 20): Promise<MoviesResponse> => {
+export const getFilteredMovies = async (page: number, limit: number, filters: Filters): Promise<MoviesResponse> => {
   const response = await api.get<MoviesResponse>('/movies/filteredMovies', {
-    params: { ...filters, page, limit },
+    params: { page, limit, ...filters },
   });
   return response.data;
 };
