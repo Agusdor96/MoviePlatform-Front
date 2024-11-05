@@ -1,0 +1,12 @@
+/* CardContainer.module.css */
+
+.container {
+  display: grid;
+  width: 100%;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  padding: 20px;
+  background-color: #330621; /* Ajusta según el diseño de Figma */
+  border: rgb(219, 38, 38) solid;
+}
+  

@@ -1,33 +1,27 @@
 /* Home.module.css */
-.home {
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .moviesList {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .pagination {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .button {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .buttonDisabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
+
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  min-height: 100vh; /* Para ocupar toda la pantalla */
+  width: 100%;
+  font-family: 'Arial', sans-serif; /* Ajusta la fuente */
+  background-color: #0D0D0D; /* Color de fondo, ajusta según Figma */
+}
+
+.contentContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333; /* Color de título, ajusta según Figma */
+}
+
   

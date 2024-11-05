@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useMovies } from '../../context/MoviesContext';
-import MovieCard from '../../components/MovieCard/MovieCard';
 import { getMovies } from '../../api/movie.service';
 import styles from "./Home.module.css"
+import Navbar from '../../components/NavBar/NavBar';
+import CardContainer from '../../components/CardContainer/CardContainer';
 
 const Home: React.FC = () => {
     const { movies, setMovies, currentPage, setCurrentPage, totalPages, setTotalPages } = useMovies();
@@ -36,13 +37,10 @@ const Home: React.FC = () => {
 
 
   return (
-    <div className={styles.home}>
-      <h1>Películas</h1>
-      <div className={styles.moviesList}>
-        {movies?.map(movie => (
-          <MovieCard key={movie._id} movie={movie} />
-        ))}
-      </div>
+    <div className={styles.homeContainer}>
+      <Navbar/>
+      <h1 className={styles.title}>Películas</h1>
+      <CardContainer movies={movies} />
       <div className={styles.pagination}>
         <button onClick={handlePreviousPage} disabled={currentPage === 0}>Anterior</button>
         <span>Página {currentPage + 1} de {totalPages}</span>

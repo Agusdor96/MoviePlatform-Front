@@ -5,8 +5,9 @@ const Navbar: React.FC = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>FilmHub</div>
-      <ul className={styles.navLinks}>
-        <li>Registro</li>
+      <input className={styles.searchBar} type="text" placeholder="Buscar..." />
+      <ul className={styles.buttonGroup}>
+      <button>Registrarse</button>
         <li>Acerca De</li>
       </ul>
       <button className={styles.loginButton}>Iniciar Sesión</button>
