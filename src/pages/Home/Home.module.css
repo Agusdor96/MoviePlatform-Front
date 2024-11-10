@@ -24,4 +24,23 @@
   color: #333; /* Color de título, ajusta según Figma */
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  padding: auto;
+}
+
+.pagination button{
+  width: 10%;
+  height: 50%;
+  background-color: rgb(200, 236, 94);
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.pagination span{
+  color: azure;
+}
+
   
