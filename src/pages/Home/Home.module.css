@@ -1,0 +1,46 @@
+/* Home.module.css */
+
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Para ocupar toda la pantalla */
+  width: 100%;
+  font-family: 'Arial', sans-serif; /* Ajusta la fuente */
+  background-color: #0D0D0D; /* Color de fondo, ajusta según Figma */
+  
+}
+
+.contentContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333; /* Color de título, ajusta según Figma */
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  padding: auto;
+}
+
+.pagination button{
+  width: 10%;
+  height: 50%;
+  background-color: rgb(200, 236, 94);
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.pagination span{
+  color: azure;
+}
+
+  
