@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Crea una instancia de Axios con una configuración base
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API, // URL base de tu backend
+  baseURL: import.meta.env.API_VERCEL, // URL base de tu backend
   timeout: 10000, // Timeout opcional
   headers: {
     'Content-Type': 'application/json',
