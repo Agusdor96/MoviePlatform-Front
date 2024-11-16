@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Crea una instancia de Axios con una configuración base
 const api = axios.create({
-  baseURL: `https://${import.meta.env.VITE_API_VERCEL}`, // URL base de tu backend
+  baseURL: "https://film-hub250.vercel.app", // URL base de tu backend
   timeout: 10000, // Timeout opcional
   headers: {
     'Content-Type': 'application/json',
